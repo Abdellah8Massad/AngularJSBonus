@@ -1,0 +1,17 @@
+<div class="groupe" >
+
+	<div class="col1"><input type="text" ng-model="usr.name" /></div> 
+	<div class="col2"><input type="text" ng-model="rech.title" /></div> 
+	<div class="col3"><input type="text" ng-model="rech.body" /></div> 
+
+</div>
+
+<div ng-repeat="post in postsResult | filter:rech" >
+
+<div ng-repeat="user in userResult | filter:usr"  class="groupe" >
+	<div class="col1" ng-show="user.id == post.userId"> {{ user.name }} </div>
+	<div class="col2" ng-show="user.id == post.userId"> 	{{ post.title }} </div>
+	<div class="col3" ng-show="user.id == post.userId"> 	{{ post.body }} </div>
+</div>
+
+<div>

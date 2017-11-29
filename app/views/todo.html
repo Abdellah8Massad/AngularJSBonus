@@ -1,0 +1,14 @@
+<select name="users" ng-model="usr.userId">
+
+<option ng-repeat="user in userResult | orderBy : Nomfilter" value="{{ user.id }}" >
+	{{ user.name.split(' ')[1] | uppercase }}
+	{{ user.name.split(' ')[0] }} 
+</option>
+
+</select>
+
+<div id="todo" ng-repeat="td in todosResult | filter:usr" class="groupe" >
+<p class="col1">titre : {{ td.title }}</p>
+<input type="checkbox" value="{{ td.completed }}" class="col2" checked ng-show="{{ td.completed }}" ng-click="td.completed=false;save(td.id,td.completed)" />
+<input type="checkbox" value="{{ td.completed }}" class="col2"  ng-hide="{{ td.completed }}" ng-click="td.completed=true;save(td.id,td.completed)" />
+</div>
